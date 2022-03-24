@@ -1,25 +1,28 @@
-import './App.css';
+// Component
 import Home from './components/Home';
+import Navbar from './components/Navbar';
+
+// Routes
 import About from "./routes/about";
 import AboutApp from "./routes/about-app"
 import AboutAuthor from "./routes/about-author"
-import { BrowserRouter,Routes, Route } from "react-router-dom";
+
+// React-Router
+import {Routes, Route } from "react-router-dom";
 
 function App() {
   return (
-    <>
-      <BrowserRouter>
-        <div className="App">
-          <Routes>
-            <Route path="/" element={<Home /> } />
-            <Route path="/about" element={<About/>} />
-            <Route path="/about-app" element={<AboutApp/>} />
-            <Route path="/about-author" element={<AboutAuthor/>} />
-            <Route path="*" element={<div>Oops! Something Went Wrong!</div>} />
-          </Routes>
-        </div>
-      </BrowserRouter>
-    </>
+    <div className="App">
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home /> } />
+        <Route path="/about/" element={<About/>}>
+          <Route path="about-app" element={<AboutApp/>} />
+          <Route path="about-author" element={<AboutAuthor/>} />
+        </Route>
+        <Route path="*" element={<div style={{marginLeft:"300px", paddingTop: "40px", fontSize:"24px"}}>Oops! Something Went Wrong!</div>} />
+      </Routes>
+    </div>
   );
 }
 

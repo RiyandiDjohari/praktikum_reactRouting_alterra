@@ -1,5 +1,4 @@
 import { Component } from "react";
-import Navbar from "./Navbar";
 import ToDoInput from "./ToDoInput";
 import ToDoList from "./ToDoList";
 
@@ -51,7 +50,6 @@ class Home extends Component{
   render(){
     return(
       <div className="home">
-        <Navbar/>
         <h1 className="title">todos</h1>
         <ToDoInput tambahToDo={this.tambahToDo}/>
         <ToDoList data={this.state.data} hapusToDo={this.hapusToDo} handleChange={this.handleCheckboxChange}/>
